@@ -1,1 +1,25 @@
 $message
+
+<input type="button" id="getOtherDomainThings" value="点击获取其他域名的资源"/>
+
+<script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js" type="text/javascript"></script>
+
+
+<script>
+    function jsoncallback(data){
+        console.log(data);
+    }
+</script>
+<script src="http://localhost:8081/hello.html?callback=jsoncallback" type="text/javascript"/>
+
+
+<script>
+    $("#getOtherDomainThings").click(function () {
+        $.get("http://localhost:8081/hello.html?callback=jsoncallback", function (data) {
+            console.log(data)
+        })
+
+    })
+
+</script>
+
