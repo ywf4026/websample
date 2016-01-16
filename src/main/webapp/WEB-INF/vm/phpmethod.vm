@@ -1,0 +1,45 @@
+<html>
+<head>
+    <title>phpmethod服务化</title>
+    <link rel="stylesheet" type="text/css" href="/WEB-INF/css/color.css" />
+</head>
+<body>
+<div>
+
+    <p>phpmethod服务化，当前统计日期：
+        #if($daysPeriod && $daysPeriod.size()>0)
+            #set($end = $daysPeriod.size() - 1)
+            $daysPeriod[$end]~$daysPeriod[0]
+        #end
+        <input class="red"  type="button" value="查看近一周" onclick="location.href='/phpmethod.html?days=7'+'#if($debug=="1")&debug=1#end'"/>
+        <input class="green"  type="button" value="查看前一天" onclick="location.href='/phpmethod.html?days=1'+'#if($debug=="1")&debug=1#end'"/>
+        <input class="green"  type="button" value="返回首页" onclick="location.href='/hello.html'+'#if($debug=="1")?&debug=1#end'"/>
+
+    </p>
+</div>
+
+
+<table horder=0 cellspacing=1 cellpadding=2 width=700 align=center>
+    <tr>
+        <td align="center">method&nbsp</td>
+        <td align="center">count&nbsp</td>
+        <td align="center">负责人&nbsp</td>
+        <td align="center">跟进人&nbsp</td>
+        <td align="center">截止日期&nbsp</td>
+    </tr>
+
+    #foreach($row in $rowsArray)
+        <tr >
+            <td>$row[0]</td>
+            <td>$row[1]</td>
+            <td>$row[2]</td>
+            <td>$row[3]</td>
+            <td>$row[4]</td>
+        </tr>
+    #end
+</table>
+
+
+
+</body>
+</html>

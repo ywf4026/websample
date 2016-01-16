@@ -1,0 +1,56 @@
+<configuration debug="false" scan="true" scanPeriod="10 seconds">
+	<conversionRule conversionWord="ip" converterClass="com.mogujie.service.xiaodian.trade.base.utils.IpConvert" />
+
+	<property name="FILE_PATTERN" value="%d [%ip] [%t] %5p %c %F:%L - %m%n" />
+
+	<property name="LOG_FILE_NAME" value="stdout" />
+	<property name="ERROR_LOG_FILE_NAME" value="error" />
+	<property name="INFO_LOG_FILE_NAME" value="info" />
+
+	<appender name="stdout"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${CATALINA_APPLOG}/${LOG_FILE_NAME}.log</File>
+		<encoder>
+			<pattern>${FILE_PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${CATALINA_APPLOG}/${LOG_FILE_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="error"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${CATALINA_APPLOG}/${ERROR_LOG_FILE_NAME}.log</File>
+		<encoder>
+			<pattern>${FILE_PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${CATALINA_APPLOG}/${ERROR_LOG_FILE_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<appender name="info"
+			  class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${CATALINA_APPLOG}/${INFO_LOG_FILE_NAME}.log</File>
+		<encoder>
+			<pattern>${FILE_PATTERN}</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${CATALINA_APPLOG}/${INFO_LOG_FILE_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+			<maxHistory>30</maxHistory>
+		</rollingPolicy>
+	</appender>
+
+	<!--<logger name="com.mogujie.service.mogujie.trade.service.order.create.impl.InsertServiceImpl" level="WARN" addtivity="false">-->
+		<!--<appender-ref ref="ERROR_FILE" />-->
+		<!--<appender-ref ref="ASYNC_INFO_FILE" />-->
+	<!--</logger>-->
+
+
+	<root level="INFO">
+		<appender-ref ref="info" />
+		<appender-ref ref="error" />
+	</root>
+</configuration>

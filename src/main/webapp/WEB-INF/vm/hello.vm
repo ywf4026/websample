@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>TradeOrder统计首页</title>
+    <style>
+        body,ul{
+            padding:0px;
+            margin:0px;
+            padding-top:20px;
+            font-size:10pt;
+            font-family:"宋体";
+        }
+        ul{
+            width:800px;
+            height:400px;
+            margin:0 auto;/*CSS才是水平居中全靠他了*/
+            list-style-type: none;
+        }
+        ul li{
+            width:95%;
+            height:auto;
+            margin:0 auto;
+            margin-bottom:4px;}
+        ul li a{
+            text-decoration: none;
+            color:#333;
+            width:100%;
+            height:2em;
+            line-height:2em;
+            display:block;
+        }
+        ul li a:hover{
+            color: #FF0000;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="/tradeorder.html#if($debug=="1")?debug=1#end"> TradeOrder查询 </a></li>
+    <li><a href="/phpmethod.html#if($debug=="1")?debug=1#end"> Php服务化 </a></li>
+    <li><a href="/timeline.html#if($debug=="1")?debug=1#end"> TradeAfterSaleTimeline表 </a></li>
+    <li><a href="/refund.html#if($debug=="1")?debug=1#end"> TradeRefund表 </a></li>
+
+</ul>
+</body>
+</html>
