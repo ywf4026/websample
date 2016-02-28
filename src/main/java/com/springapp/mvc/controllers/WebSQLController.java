@@ -8,16 +8,16 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-public class HelloController {
+public class WebSQLController {
 	@Autowired
 	HttpServletRequest httpServletRequest;
 
-	@RequestMapping(value = "/hello.html")
+	@RequestMapping(value = "/websql.html")
 	public ModelAndView hello() {
 		int loc = httpServletRequest.getRequestURL().indexOf("localhost");
 
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("hello");
+		modelAndView.setViewName("websql");
 		modelAndView.addObject("message", "Hello World!");
 
 		return modelAndView;
